@@ -20,19 +20,29 @@
     <div id="todo-lst"></div>
 
     <script>
-      const todolist = [];
-      function deleteTodo() {
-        console.log("delete");
-      }
+      let todolist = [];
+      function deleteTodo(event) {
+        const deleteButtton = event.target;
+        const todoToBeDeleted = deleteButtton.id;
+        todolist = todolist.filter(filterArray);
+       function  filterArray(todo){
+          return(todoToBeDeleted !== todo.todoId);
+        }
+        renderTodoList();
+        
+       }
       function addTodo() {
         const todoElement = document.getElementById("todo-input");
         const dueDateElement = document.getElementById("duedate-input");
         let todoName = todoElement.value;
         let dueDate = dueDateElement.value;
+        const todoId= '' + new Date().getTime();
+
         if (dueDate !== "" && todoName !== "") {
           todolist.push({
             dueDate,
             todoName,
+            todoId,
           });
           todoElement.value = "";
           dueDateElement.value = "";
@@ -54,7 +64,9 @@
             todolist[index].dueDate;
           const deleteElement = document.createElement("button");
           deleteElement.innerText = "Delete";
-          deleteElement.style = "color: white; margin-left 20px;";
+          deleteElement.id=todolist[index].todoId;
+
+          deleteElement.style = "background-color: red,color: black, margin-left 50px,";
           deleteElement.onclick = deleteTodo;
           paraElement.appendChild(deleteElement);
           divElement.appendChild(paraElement);
