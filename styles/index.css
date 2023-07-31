@@ -1,0 +1,10 @@
+button,
+input{
+  
+    padding: 6px 10px;
+
+}button{
+    background-color: green !important;
+    color: white;
+    border: none;
+}
