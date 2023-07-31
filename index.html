@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todolist</title>
+  </head>
+  <body>
+    <input type="text" id="todo-input" placeholder="Todo name" />
+    <button
+      onclick="  
+       addTodo();
+    "
+    >
+      Add
+    </button>
+
+    <script>
+      const todolist = [];
+      /* const element = document.createElement("p");
+      element.innerHTML = "yonas's div";
+      document.body.appendChild(element); */
+
+      let todoName;
+      function addTodo() {
+        const inputElement = document.getElementById("todo-input");
+        todoName = inputElement.value;
+        if (todoName !== "undefined" && todoName !== "") {
+          todolist.push(todoName);
+          inputElement.value = "";
+          console.log(todolist);
+        }
+        renderTodoList();
+      }
+      let paraElement;
+      function renderTodoList() {
+        for (let index = 0; index < todolist.length - 1; index++) {}
+        for (let index = todolist.length - 1; index >= 0; index--) {
+          paraElement = document.createElement("p");
+          paraElement.innerText = todolist[index];
+
+          document.body.appendChild(paraElement);
+        }
+      }
+    </script>
+  </body>
+</html>
