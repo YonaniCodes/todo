@@ -7,6 +7,7 @@
   </head>
   <body>
     <input type="text" id="todo-input" placeholder="Todo name" />
+    <input type="date" id="duedate-input" />
     <button
       onclick="  
        addTodo();
@@ -14,32 +15,47 @@
     >
       Add
     </button>
+    <div id="todo-lst"></div>
 
     <script>
       const todolist = [];
-      /* const element = document.createElement("p");
-      element.innerHTML = "yonas's div";
-      document.body.appendChild(element); */
-
-      let todoName;
+      function deleteTodo() {
+        console.log("delete");
+      }
       function addTodo() {
-        const inputElement = document.getElementById("todo-input");
-        todoName = inputElement.value;
-        if (todoName !== "undefined" && todoName !== "") {
-          todolist.push(todoName);
-          inputElement.value = "";
+        const todoElement = document.getElementById("todo-input");
+        const dueDateElement = document.getElementById("duedate-input");
+        let todoName = todoElement.value;
+        let dueDate = dueDateElement.value;
+        if (dueDate !== "" && todoName !== "") {
+          todolist.push({
+            dueDate,
+            todoName,
+          });
+          todoElement.value = "";
+          dueDateElement.value = "";
           console.log(todolist);
+          console.log(todolist[0]);
         }
         renderTodoList();
       }
+
       let paraElement;
       function renderTodoList() {
-        for (let index = 0; index < todolist.length - 1; index++) {}
+        const divElement = document.getElementById("todo-lst");
+        divElement.innerHTML = "";
         for (let index = todolist.length - 1; index >= 0; index--) {
           paraElement = document.createElement("p");
-          paraElement.innerText = todolist[index];
-
-          document.body.appendChild(paraElement);
+          paraElement.innerText =
+            todolist[index].todoName +
+            "             " +
+            todolist[index].dueDate;
+          const deleteElement = document.createElement("button");
+          deleteElement.innerText = "Delete";
+          deleteElement.style = "color: white; margin-left 20px;";
+          deleteElement.onclick = deleteTodo;
+          paraElement.appendChild(deleteElement);
+          divElement.appendChild(paraElement);
         }
       }
     </script>
