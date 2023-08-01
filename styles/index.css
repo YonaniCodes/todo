@@ -1,10 +1,26 @@
-button,
+
 input{
   
     padding: 6px 10px;
 
 }button{
-    background-color: green !important;
+    background-color: #008000;
     color: white;
     border: none;
+    padding: 9px 10px;
+    margin-left: 15px;
+}
+
+.delete-button{
+    background-color:#3c005a;
+    margin-left: 224px;
+}
+.container{
+    max-width: 387px;
+  
+    margin: auto o;
+}
+.todolist{
+    background-color: rgb(197, 231, 242);
+    width: 100%;
 }

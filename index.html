@@ -8,70 +8,18 @@
     ">
   </head>
   <body>
-    <input type="text" id="todo-input" placeholder="Todo name" />
-    <input type="date" id="duedate-input" />
-    <button
-      onclick="  
-       addTodo();
-    "
-    >
-      Add
-    </button>
-    <div id="todo-lst"></div>
+    <div class="container">
+      <input type="text" id="todo-input" placeholder="Todo name" />
+      <input type="date" id="duedate-input" />
+      <button onclick="addTodo();">
+       Add
+      </button>
+      <div id="todo-lst"></div>
 
-    <script>
-      let todolist = [];
-      function deleteTodo(event) {
-        const deleteButtton = event.target;
-        const todoToBeDeleted = deleteButtton.id;
-        todolist = todolist.filter(filterArray);
-       function  filterArray(todo){
-          return(todoToBeDeleted !== todo.todoId);
-        }
-        renderTodoList();
-        
-       }
-      function addTodo() {
-        const todoElement = document.getElementById("todo-input");
-        const dueDateElement = document.getElementById("duedate-input");
-        let todoName = todoElement.value;
-        let dueDate = dueDateElement.value;
-        const todoId= '' + new Date().getTime();
+    </div>
+   
 
-        if (dueDate !== "" && todoName !== "") {
-          todolist.push({
-            dueDate,
-            todoName,
-            todoId,
-          });
-          todoElement.value = "";
-          dueDateElement.value = "";
-          console.log(todolist);
-          console.log(todolist[0]);
-        }
-        renderTodoList();
-      }
-
-      let paraElement;
-      function renderTodoList() {
-        const divElement = document.getElementById("todo-lst");
-        divElement.innerHTML = "";
-        for (let index = todolist.length - 1; index >= 0; index--) {
-          paraElement = document.createElement("p");
-          paraElement.innerText =
-            todolist[index].todoName +
-            "             " +
-            todolist[index].dueDate;
-          const deleteElement = document.createElement("button");
-          deleteElement.innerText = "Delete";
-          deleteElement.id=todolist[index].todoId;
-
-          deleteElement.style = "background-color: red,color: black, margin-left 50px,";
-          deleteElement.onclick = deleteTodo;
-          paraElement.appendChild(deleteElement);
-          divElement.appendChild(paraElement);
-        }
-      }
+    <script src="scripts/index.js">
     </script>
   </body>
 </html>
