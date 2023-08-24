@@ -13,10 +13,11 @@ input{
 
 .delete-button{
     background-color:#3c005a;
-    margin-left: 224px;
+    margin-left: 234px;
 }
 .container{
-    max-width: 387px;
+    width: 400px;
+    display: inline-block;
   
     margin: auto o;
 }
