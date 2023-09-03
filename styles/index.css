@@ -8,7 +8,7 @@ input{
     color: white;
     border: none;
     padding: 9px 10px;
-    margin-left: 15px;
+    margin-left: px;
 }
 
 .delete-button{
@@ -18,13 +18,16 @@ input{
 .container{
     width: 450PX;
     display: inline-block;
+    display: grid;
+    grid-template-columns: 1fr 1fr 80px;
+    column-gap: 6px;
   
-    margin: auto o;
 }
 
-.todolist{
-    background-color: rgb(197, 231, 242);
+#todo-lst{
+    background-color: rgb(23, 115, 149);
     width: 100%;
+   
 
 }
-todo-lst
+ 
