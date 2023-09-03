@@ -13,8 +13,9 @@ let todolist = [];
       function removeTodo(todoToBeDeleted){
          todolist = todolist.filter(filterArray);
          function  filterArray(todo){
+         console.log(todo);
           return(todoToBeDeleted !== todo.todoId);
-        }
+        } 
 
       }
       
@@ -27,10 +28,13 @@ let todolist = [];
         const divElement = document.getElementById("todo-lst");
         divElement.innerHTML = "";
         for (let index = todolist.length - 1; index >= 0; index--) {
-          const paraElement = document.createElement("p");
-          paraElement.innerText =
-            todolist[index].todoName +
-            "  " +
+          const todoNameElement = document.createElement("div");
+          const todoDateElement = document.createElement("div");
+
+
+          todoNameElement.innerText =
+            todolist[index].todoName;  
+          todoDateElement.innerText = 
             todolist[index].dueDate;
           const deleteElement = document.createElement("button");
           deleteElement.innerText = "Delete";
@@ -38,8 +42,12 @@ let todolist = [];
 
           deleteElement.className='delete-button';
           deleteElement.onclick = deleteTodo;
-          paraElement.appendChild(deleteElement);
-          divElement.appendChild(paraElement);
+         
+          divElement.appendChild( todoNameElement);
+          divElement.appendChild( todoDateElement);
+
+          divElement.appendChild( deleteElement );
+
         }
       }
 

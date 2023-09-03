@@ -1,4 +1,6 @@
-
+div{
+    width: 100%;
+}
 input{
   
     padding: 6px 10px;
@@ -8,26 +10,26 @@ input{
     color: white;
     border: none;
     padding: 9px 10px;
-    margin-left: px;
-}
+ }
 
 .delete-button{
     background-color:#3c005a;
-    margin-left: 236px;
+ 
 }
-.container{
-    width: 450PX;
+.container,
+#todo-lst{
+    width: 400PX;
     display: inline-block;
     display: grid;
-    grid-template-columns: 1fr 1fr 80px;
+    grid-template-columns: 186px 133.33px 80px;
     column-gap: 6px;
+    row-gap: 6px;
+    margin-top: 8px;
+    align-items: center;
   
 }
 
-#todo-lst{
-    background-color: rgb(23, 115, 149);
-    width: 100%;
-   
+ 
+ 
 
-}
  
