@@ -13,15 +13,18 @@ input{
 
 .delete-button{
     background-color:#3c005a;
-    margin-left: 234px;
+    margin-left: 236px;
 }
 .container{
-    width: 400px;
+    width: 450PX;
     display: inline-block;
   
     margin: auto o;
 }
+
 .todolist{
     background-color: rgb(197, 231, 242);
     width: 100%;
+
 }
+todo-lst
