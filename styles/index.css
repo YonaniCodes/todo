@@ -1,6 +1,11 @@
-div{
-    width: 100%;
-}
+
+ 
+ .section{
+     
+    width: 450px;
+    margin: 100px auto;
+ 
+  }
 input{
   
     padding: 6px 10px;
@@ -18,7 +23,8 @@ input{
 }
 .container,
 #todo-lst{
-    width: 400PX;
+ 
+    
     display: inline-block;
     display: grid;
     grid-template-columns: 186px 133.33px 80px;
