@@ -1,4 +1,12 @@
-let todolist = [];
+// if localstorage has todos
+// initialize it to todolist
+//else  intialize todolist to Empty
+let todolist;
+let savedTodoList = JSON.parse(localStorage.getItem("todos"));
+console.log(savedTodoList);
+if (Array.isArray(savedTodoList)) todolist = savedTodoList;
+else todolist = [];
+renderTodoList();
 function createTodo(todoName, dueDate) {
   const todoId = "" + new Date().getTime();
   if (dueDate !== "" && todoName !== "") {
@@ -8,15 +16,19 @@ function createTodo(todoName, dueDate) {
       todoId,
     });
   }
+  saveTodoList();
 }
 function removeTodo(todoToBeDeleted) {
   todolist = todolist.filter(filterArray);
   function filterArray(todo) {
-    console.log(todo);
     return todoToBeDeleted !== todo.todoId;
   }
-}
 
+  saveTodoList();
+}
+function saveTodoList() {
+  localStorage.setItem("todos", JSON.stringify(todolist));
+}
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 
 function renderTodoList() {
